@@ -42,8 +42,7 @@ jobs:
           path: build_log.txt
 
       - name: Upload APK Artifact
-        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: UniBusWakeUp-Release-APK
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: build/app/outputs/**/*.apk
