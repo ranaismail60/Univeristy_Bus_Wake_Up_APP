@@ -24,9 +24,8 @@ jobs:
         with:
           channel: 'stable'
 
-      - name: Create local.properties
-        run: |
-          echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
+      - name: Regenerate Flutter Android Project Files
+        run: flutter create . --overwrite --org com.unibus.wakeup
 
       - name: Install Dependencies
         run: flutter pub get
