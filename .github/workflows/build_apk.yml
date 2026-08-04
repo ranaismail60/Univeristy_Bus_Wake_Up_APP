@@ -24,25 +24,18 @@ jobs:
         with:
           channel: 'stable'
 
+      - name: Create local.properties
+        run: |
+          echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
+
       - name: Install Dependencies
         run: flutter pub get
 
-      - name: Verify Flutter and Android Setup
-        run: flutter doctor -v
-
-      - name: Build APK (Verbose)
-        run: |
-          flutter build apk --release --no-tree-shake-icons -v 2>&1 | tee build_log.txt
-
-      - name: Upload Build Log Artifact
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-log
-          path: build_log.txt
+      - name: Build APK
+        run: flutter build apk --release --no-tree-shake-icons
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: UniBusWakeUp-Release-APK
-          path: build/app/outputs/**/*.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
