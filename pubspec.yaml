@@ -1,0 +1,28 @@
+name: uni_bus_wake_up_app
+description: Offline University Bus Wake-Up & P2P Tracking App for FAST-NUCES Students
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  geolocator: ^10.1.0
+  flutter_ringtone_player: ^3.2.0
+  shared_preferences: ^2.2.2
+  vibration: ^1.8.4
+  wifi_iot: ^0.3.19
+  flutter_nearby_connections: ^1.1.2
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/routes_data.json

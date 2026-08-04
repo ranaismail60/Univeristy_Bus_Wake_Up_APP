@@ -1,0 +1,302 @@
+{
+  "routes": [
+    {
+      "route_id": "Route-01",
+      "name": "Route 01 - Chenab Garden to Campus",
+      "driver": "Mr. Waqas",
+      "contact": "0307-7912548",
+      "stops": [
+        {"name": "Chenab Garden", "time": "07:05 AM", "lat": 31.4501, "lng": 73.1350},
+        {"name": "Abdullah Pull", "time": "07:08 AM", "lat": 31.4532, "lng": 73.1382},
+        {"name": "Korian Pull", "time": "07:10 AM", "lat": 31.4550, "lng": 73.1410},
+        {"name": "D-Type - Chowk / Pull", "time": "07:11 AM", "lat": 31.4571, "lng": 73.1435},
+        {"name": "D-Type - Goal", "time": "07:13 AM", "lat": 31.4590, "lng": 73.1450},
+        {"name": "Waris Pura", "time": "07:17 AM", "lat": 31.4630, "lng": 73.1480},
+        {"name": "Raja Chowk", "time": "07:19 AM", "lat": 31.4655, "lng": 73.1502},
+        {"name": "Pahari Chowk", "time": "07:28 AM", "lat": 31.4720, "lng": 73.1550},
+        {"name": "Babar Chowk", "time": "07:33 AM", "lat": 31.4760, "lng": 73.1590},
+        {"name": "Hameed Palace", "time": "07:34 AM", "lat": 31.4780, "lng": 73.1610},
+        {"name": "McDonalds", "time": "07:35 AM", "lat": 31.4800, "lng": 73.1630},
+        {"name": "Honda Show Room", "time": "07:50 AM", "lat": 31.5000, "lng": 73.1800},
+        {"name": "FAST CFD Campus", "time": "08:25 AM", "lat": 31.5645, "lng": 73.2450}
+      ]
+    },
+    {
+      "route_id": "Route-02",
+      "name": "Route 02 - Chowki Bazzar to Campus",
+      "driver": "Mr. Hanif Shakir",
+      "contact": "0300-2388900",
+      "stops": [
+        {"name": "Chowki Bazzar", "time": "07:12 AM", "lat": 31.4150, "lng": 73.0800},
+        {"name": "Nighaban Pura Phatak", "time": "07:13 AM", "lat": 31.4180, "lng": 73.0830},
+        {"name": "Wapda Colony", "time": "07:14 AM", "lat": 31.4200, "lng": 73.0850},
+        {"name": "Tariqabad Phatak", "time": "07:15 AM", "lat": 31.4230, "lng": 73.0880},
+        {"name": "Kashmir Pull", "time": "07:25 AM", "lat": 31.4350, "lng": 73.1000},
+        {"name": "Amin Town", "time": "07:28 AM", "lat": 31.4400, "lng": 73.1050},
+        {"name": "66 Foota Bazar", "time": "07:29 AM", "lat": 31.4420, "lng": 73.1080},
+        {"name": "PMC Hostel Bridge", "time": "07:50 AM", "lat": 31.4800, "lng": 73.1400},
+        {"name": "FAST CFD Campus", "time": "08:25 AM", "lat": 31.5645, "lng": 73.2450}
+      ]
+    },
+    {
+      "route_id": "Route-03",
+      "name": "Route 03 - Millat Town to Campus",
+      "driver": "Mr. Zahid",
+      "contact": "0333-6565326",
+      "stops": [
+        {"name": "Millat Town", "time": "07:25 AM", "lat": 31.4600, "lng": 73.1100},
+        {"name": "Total Pump", "time": "07:27 AM", "lat": 31.4630, "lng": 73.1130},
+        {"name": "Green Town", "time": "07:29 AM", "lat": 31.4660, "lng": 73.1160},
+        {"name": "Family Mart", "time": "07:40 AM", "lat": 31.4800, "lng": 73.1300},
+        {"name": "Haq Bahu Chowk", "time": "07:43 AM", "lat": 31.4850, "lng": 73.1350},
+        {"name": "Kohlo Wali Galli", "time": "07:48 AM", "lat": 31.4920, "lng": 73.1420},
+        {"name": "FAST CFD Campus", "time": "08:25 AM", "lat": 31.5645, "lng": 73.2450}
+      ]
+    },
+    {
+      "route_id": "Route-04",
+      "name": "Route 04 - 4 Season to Campus",
+      "driver": "Mr. Ateeq",
+      "contact": "0322-6303059",
+      "stops": [
+        {"name": "4 Season", "time": "07:10 AM", "lat": 31.4100, "lng": 73.0700},
+        {"name": "Rafhan Mill", "time": "07:14 AM", "lat": 31.4180, "lng": 73.0780},
+        {"name": "Total Pump", "time": "07:17 AM", "lat": 31.4230, "lng": 73.0830},
+        {"name": "Nawa Pull", "time": "07:23 AM", "lat": 31.4320, "lng": 73.0920},
+        {"name": "Care Pharmacy", "time": "07:27 AM", "lat": 31.4380, "lng": 73.0980},
+        {"name": "Madni Chowk", "time": "07:29 AM", "lat": 31.4410, "lng": 73.1010},
+        {"name": "Ideal Bakery", "time": "07:30 AM", "lat": 31.4430, "lng": 73.1030},
+        {"name": "Novality Pull", "time": "07:32 AM", "lat": 31.4460, "lng": 73.1060},
+        {"name": "Gao Shala", "time": "07:37 AM", "lat": 31.4530, "lng": 73.1130},
+        {"name": "Khawja Travel", "time": "07:41 AM", "lat": 31.4600, "lng": 73.1200},
+        {"name": "BC Tower", "time": "07:46 AM", "lat": 31.4700, "lng": 73.1300},
+        {"name": "FAST CFD Campus", "time": "08:25 AM", "lat": 31.5645, "lng": 73.2450}
+      ]
+    },
+    {
+      "route_id": "Route-05",
+      "name": "Route 05 - Marzi Pura to Campus",
+      "driver": "Mr. Khalid",
+      "contact": "0336-7788662",
+      "stops": [
+        {"name": "Marzi Pura", "time": "07:15 AM", "lat": 31.4300, "lng": 73.0500},
+        {"name": "Kashmir Road", "time": "07:20 AM", "lat": 31.4370, "lng": 73.0570},
+        {"name": "Mandi Morr", "time": "07:25 AM", "lat": 31.4440, "lng": 73.0640},
+        {"name": "Awan Chowk", "time": "07:28 AM", "lat": 31.4480, "lng": 73.0680},
+        {"name": "Kabootra Wala Chowk", "time": "07:30 AM", "lat": 31.4510, "lng": 73.0710},
+        {"name": "Iqbal Hospital", "time": "07:32 AM", "lat": 31.4540, "lng": 73.0740},
+        {"name": "Raza Abad Chowk", "time": "07:35 AM", "lat": 31.4580, "lng": 73.0780},
+        {"name": "Pakistan Chowk", "time": "07:37 AM", "lat": 31.4610, "lng": 73.0810},
+        {"name": "Bara Qabristan Mor", "time": "07:38 AM", "lat": 31.4630, "lng": 73.0830},
+        {"name": "SB Store", "time": "07:39 AM", "lat": 31.4650, "lng": 73.0850},
+        {"name": "University Main Gate", "time": "07:42 AM", "lat": 31.4700, "lng": 73.0900},
+        {"name": "Total Pump", "time": "07:44 AM", "lat": 31.4730, "lng": 73.0930},
+        {"name": "Eid Gah Chowk - Jail Road", "time": "07:46 AM", "lat": 31.4760, "lng": 73.0960},
+        {"name": "Bypass Chowk", "time": "08:00 AM", "lat": 31.5000, "lng": 73.1500},
+        {"name": "FAST CFD Campus", "time": "08:25 AM", "lat": 31.5645, "lng": 73.2450}
+      ]
+    },
+    {
+      "route_id": "Route-06",
+      "name": "Route 06 - Shiffa Hospital to Campus",
+      "driver": "Mr. Javaid",
+      "contact": "0342-8791644",
+      "stops": [
+        {"name": "Shiffa Hospital", "time": "07:10 AM", "lat": 31.4000, "lng": 73.0600},
+        {"name": "PSO Pump", "time": "07:13 AM", "lat": 31.4050, "lng": 73.0650},
+        {"name": "Kahloshan Colony", "time": "07:15 AM", "lat": 31.4080, "lng": 73.0680},
+        {"name": "Qabristan Morr", "time": "07:17 AM", "lat": 31.4110, "lng": 73.0710},
+        {"name": "Zubair Colony", "time": "07:18 AM", "lat": 31.4130, "lng": 73.0730},
+        {"name": "Lahore Sweets", "time": "07:20 AM", "lat": 31.4160, "lng": 73.0760},
+        {"name": "Tezab Mills", "time": "07:22 AM", "lat": 31.4190, "lng": 73.0790},
+        {"name": "Abdullah Pur", "time": "07:28 AM", "lat": 31.4280, "lng": 73.0880},
+        {"name": "Tariqabad", "time": "07:30 AM", "lat": 31.4310, "lng": 73.0910},
+        {"name": "GTS", "time": "07:31 AM", "lat": 31.4330, "lng": 73.0930},
+        {"name": "Cardiology", "time": "07:33 AM", "lat": 31.4360, "lng": 73.0960},
+        {"name": "Sitara Tower", "time": "07:40 AM", "lat": 31.4470, "lng": 73.1070},
+        {"name": "Total Pump - Jail Road", "time": "07:42 AM", "lat": 31.4500, "lng": 73.1100},
+        {"name": "FAST CFD Campus", "time": "08:25 AM", "lat": 31.5645, "lng": 73.2450}
+      ]
+    },
+    {
+      "route_id": "Route-07",
+      "name": "Route 07 - Manawala to Campus",
+      "driver": "Mr. Sadiq",
+      "contact": "0302-7130536",
+      "stops": [
+        {"name": "Manawala", "time": "06:55 AM", "lat": 31.5700, "lng": 73.2700},
+        {"name": "Faisal Garden", "time": "06:58 AM", "lat": 31.5600, "lng": 73.2600},
+        {"name": "Paradise Valley", "time": "07:00 AM", "lat": 31.5500, "lng": 73.2500},
+        {"name": "Wapda City", "time": "07:10 AM", "lat": 31.5200, "lng": 73.2200},
+        {"name": "Ghatt Wala Pull", "time": "07:17 AM", "lat": 31.5000, "lng": 73.2000},
+        {"name": "Beacon House", "time": "07:20 AM", "lat": 31.4900, "lng": 73.1900},
+        {"name": "SOS Pull", "time": "07:26 AM", "lat": 31.4700, "lng": 73.1700},
+        {"name": "Raza Garden", "time": "07:28 AM", "lat": 31.4650, "lng": 73.1650},
+        {"name": "Char Chak Pul", "time": "07:30 AM", "lat": 31.4600, "lng": 73.1600},
+        {"name": "Chamber of Commerce", "time": "07:30 AM", "lat": 31.4580, "lng": 73.1580},
+        {"name": "Muslim Town 2", "time": "07:58 AM", "lat": 31.4800, "lng": 73.1800},
+        {"name": "Dawood Mill", "time": "07:59 AM", "lat": 31.4850, "lng": 73.1850},
+        {"name": "FAST CFD Campus", "time": "08:25 AM", "lat": 31.5645, "lng": 73.2450}
+      ]
+    },
+    {
+      "route_id": "Route-08",
+      "name": "Route 08 - Chiniot - Chenab Nagar",
+      "driver": "Campus Desk",
+      "contact": "0312-9103000",
+      "stops": [
+        {"name": "Chungi # 3", "time": "07:25 AM", "lat": 31.7200, "lng": 72.9800},
+        {"name": "Station Chowk", "time": "07:30 AM", "lat": 31.7250, "lng": 72.9850},
+        {"name": "Shimla Pahari", "time": "07:33 AM", "lat": 31.7280, "lng": 72.9880},
+        {"name": "Embassy Mor", "time": "07:35 AM", "lat": 31.7300, "lng": 72.9900},
+        {"name": "Muslim Colony", "time": "07:38 AM", "lat": 31.7330, "lng": 72.9930},
+        {"name": "Aziz Shareef", "time": "07:40 AM", "lat": 31.7350, "lng": 72.9950},
+        {"name": "Ayubia Hotel", "time": "07:48 AM", "lat": 31.7400, "lng": 73.0000},
+        {"name": "Usmania Hostel", "time": "07:50 AM", "lat": 31.7420, "lng": 73.0020},
+        {"name": "Mustafa Abad", "time": "07:52 AM", "lat": 31.7440, "lng": 73.0040},
+        {"name": "Lari Addah", "time": "07:53 AM", "lat": 31.7450, "lng": 73.0050},
+        {"name": "Civil Hospital", "time": "07:54 AM", "lat": 31.7460, "lng": 73.0060},
+        {"name": "Tehsil Chowk", "time": "07:55 AM", "lat": 31.7470, "lng": 73.0070},
+        {"name": "Ghla Mandi", "time": "07:57 AM", "lat": 31.7490, "lng": 73.0090},
+        {"name": "Khadija Hospital", "time": "07:58 AM", "lat": 31.7500, "lng": 73.0100},
+        {"name": "Shamas ul Town", "time": "08:00 AM", "lat": 31.7520, "lng": 73.0120},
+        {"name": "FAST CFD Campus", "time": "08:25 AM", "lat": 31.5645, "lng": 73.2450}
+      ]
+    },
+    {
+      "route_id": "Route-09",
+      "name": "Route 09 - Punjab Housing to Campus",
+      "driver": "Mr. Ali",
+      "contact": "0310-7418089",
+      "stops": [
+        {"name": "Punjab Housing", "time": "07:25 AM", "lat": 31.4600, "lng": 73.1300},
+        {"name": "Tech Town", "time": "07:27 AM", "lat": 31.4630, "lng": 73.1330},
+        {"name": "Fish Farm", "time": "07:31 AM", "lat": 31.4690, "lng": 73.1390},
+        {"name": "Zam Zam Hall", "time": "07:35 AM", "lat": 31.4750, "lng": 73.1450},
+        {"name": "Rachna Town", "time": "07:37 AM", "lat": 31.4780, "lng": 73.1480},
+        {"name": "SNGPL", "time": "07:55 AM", "lat": 31.5050, "lng": 73.1750},
+        {"name": "FAST CFD Campus", "time": "08:25 AM", "lat": 31.5645, "lng": 73.2450}
+      ]
+    },
+    {
+      "route_id": "Route-10",
+      "name": "Route 10 - Suzuki Showroom to Campus",
+      "driver": "Mr. Awais",
+      "contact": "0344-6832248",
+      "stops": [
+        {"name": "Suzuki Showroom - Abdullah Pur", "time": "07:20 AM", "lat": 31.4250, "lng": 73.0850},
+        {"name": "Rafhan Mills", "time": "07:21 AM", "lat": 31.4270, "lng": 73.0870},
+        {"name": "Treat Bakers", "time": "07:22 AM", "lat": 31.4290, "lng": 73.0890},
+        {"name": "Lasania Morr", "time": "07:25 AM", "lat": 31.4340, "lng": 73.0940},
+        {"name": "Qabristan Morr", "time": "07:26 AM", "lat": 31.4360, "lng": 73.0960},
+        {"name": "Mujahid Hospital", "time": "07:29 AM", "lat": 31.4410, "lng": 73.1010},
+        {"name": "Green Belt", "time": "07:31 AM", "lat": 31.4440, "lng": 73.1040},
+        {"name": "Faizan e Madina", "time": "07:33 AM", "lat": 31.4470, "lng": 73.1070},
+        {"name": "Social Security", "time": "07:35 AM", "lat": 31.4500, "lng": 73.1100},
+        {"name": "Honda Showroom Near Dawoo Terminal", "time": "07:50 AM", "lat": 31.4750, "lng": 73.1350},
+        {"name": "FAST CFD Campus", "time": "08:25 AM", "lat": 31.5645, "lng": 73.2450}
+      ]
+    },
+    {
+      "route_id": "Route-11",
+      "name": "Route 11 - Air Port Chowk to Campus",
+      "driver": "Mr. Akhtar",
+      "contact": "0306-9091701",
+      "stops": [
+        {"name": "Air Port Chowk", "time": "07:00 AM", "lat": 31.3650, "lng": 72.9950},
+        {"name": "Air Avenue", "time": "07:10 AM", "lat": 31.3800, "lng": 73.0100},
+        {"name": "Model Bazar Pull", "time": "07:15 AM", "lat": 31.3880, "lng": 73.0180},
+        {"name": "Saifabad Chungi", "time": "07:18 AM", "lat": 31.3930, "lng": 73.0230},
+        {"name": "Shadab Morr", "time": "07:19 AM", "lat": 31.3950, "lng": 73.0250},
+        {"name": "GulFisha Mor", "time": "07:20 AM", "lat": 31.3970, "lng": 73.0270},
+        {"name": "1122", "time": "07:21 AM", "lat": 31.3990, "lng": 73.0290},
+        {"name": "Lakar Mandi", "time": "07:22 AM", "lat": 31.4010, "lng": 73.0310},
+        {"name": "Chanab Chok", "time": "07:26 AM", "lat": 31.4070, "lng": 73.0370},
+        {"name": "Khawaja Medical", "time": "07:27 AM", "lat": 31.4090, "lng": 73.0390},
+        {"name": "Bakar Mandi", "time": "07:29 AM", "lat": 31.4120, "lng": 73.0420},
+        {"name": "National Hospital", "time": "07:32 AM", "lat": 31.4170, "lng": 73.0470},
+        {"name": "FAST CFD Campus", "time": "08:25 AM", "lat": 31.5645, "lng": 73.2450}
+      ]
+    },
+    {
+      "route_id": "Route-12",
+      "name": "Route 12 - Manawala to Campus via NTU",
+      "driver": "Mr. Moeen",
+      "contact": "0309-7348386",
+      "stops": [
+        {"name": "Manawala", "time": "07:10 AM", "lat": 31.5700, "lng": 73.2700},
+        {"name": "NTU", "time": "07:12 AM", "lat": 31.5650, "lng": 73.2650},
+        {"name": "Bhata Stop", "time": "07:15 AM", "lat": 31.5580, "lng": 73.2580},
+        {"name": "Malik Pur", "time": "07:17 AM", "lat": 31.5530, "lng": 73.2530},
+        {"name": "Nishatabad Ideal", "time": "07:19 AM", "lat": 31.5480, "lng": 73.2480},
+        {"name": "Jamilabad", "time": "07:22 AM", "lat": 31.5400, "lng": 73.2400},
+        {"name": "Hajiabad", "time": "07:23 AM", "lat": 31.5370, "lng": 73.2370},
+        {"name": "Akbar Chowk", "time": "07:34 AM", "lat": 31.5150, "lng": 73.2150},
+        {"name": "Total Pump (Millat Chowk)", "time": "07:44 AM", "lat": 31.4950, "lng": 73.1950},
+        {"name": "Motorway City", "time": "07:58 AM", "lat": 31.5300, "lng": 73.2200},
+        {"name": "City Housing", "time": "08:00 AM", "lat": 31.5350, "lng": 73.2250},
+        {"name": "FAST CFD Campus", "time": "08:25 AM", "lat": 31.5645, "lng": 73.2450}
+      ]
+    },
+    {
+      "route_id": "Route-13",
+      "name": "Route 13 - Chiniot City to Campus",
+      "driver": "Mr. Zafar",
+      "contact": "0312-9103000",
+      "stops": [
+        {"name": "Chinioti Road", "time": "07:52 AM", "lat": 31.7100, "lng": 72.9700},
+        {"name": "Rajoa Chowk", "time": "07:55 AM", "lat": 31.7150, "lng": 72.9750},
+        {"name": "Janaza Gah", "time": "07:58 AM", "lat": 31.7200, "lng": 72.9800},
+        {"name": "Jhumra Chowk", "time": "08:00 AM", "lat": 31.7230, "lng": 72.9830},
+        {"name": "Yaseen Kohlo", "time": "08:01 AM", "lat": 31.7250, "lng": 72.9850},
+        {"name": "Fatima Chowk", "time": "08:02 AM", "lat": 31.7270, "lng": 72.9870},
+        {"name": "Quaid e Azam Park", "time": "08:05 AM", "lat": 31.7310, "lng": 72.9910},
+        {"name": "Din Garden", "time": "08:11 AM", "lat": 31.7400, "lng": 73.0000},
+        {"name": "FAST CFD Campus", "time": "08:25 AM", "lat": 31.5645, "lng": 73.2450}
+      ]
+    },
+    {
+      "route_id": "Route-14",
+      "name": "Route 14 - Nadeem Cafe to Campus",
+      "driver": "Mr. Usman",
+      "contact": "0300-9669887",
+      "stops": [
+        {"name": "Nadeem Cafe", "time": "07:20 AM", "lat": 31.4200, "lng": 73.0800},
+        {"name": "Muhammad Abad", "time": "07:21 AM", "lat": 31.4220, "lng": 73.0820},
+        {"name": "MC Donald", "time": "07:22 AM", "lat": 31.4240, "lng": 73.0840},
+        {"name": "Al-fateh Ground", "time": "07:25 AM", "lat": 31.4290, "lng": 73.0890},
+        {"name": "Outfitter", "time": "07:26 AM", "lat": 31.4310, "lng": 73.0910},
+        {"name": "Gourmet Bakers", "time": "07:27 AM", "lat": 31.4330, "lng": 73.0930},
+        {"name": "PSO Pump", "time": "07:28 AM", "lat": 31.4350, "lng": 73.0950},
+        {"name": "Ripple Plaza", "time": "07:30 AM", "lat": 31.4390, "lng": 73.0990},
+        {"name": "Shell Pump", "time": "07:32 AM", "lat": 31.4420, "lng": 73.1020},
+        {"name": "FDA Office", "time": "07:40 AM", "lat": 31.4550, "lng": 73.1150},
+        {"name": "5-Pulli Chowk", "time": "07:47 AM", "lat": 31.4660, "lng": 73.1260},
+        {"name": "Total Pump - Dawoo Road", "time": "07:50 AM", "lat": 31.4710, "lng": 73.1310},
+        {"name": "Sitara Sapna HBL - Ismail Markaz", "time": "07:51 AM", "lat": 31.4730, "lng": 73.1330},
+        {"name": "Ismail City", "time": "07:53 AM", "lat": 31.4760, "lng": 73.1360},
+        {"name": "Rehman Garden", "time": "07:54 AM", "lat": 31.4780, "lng": 73.1380},
+        {"name": "Riaz ul Jannah", "time": "07:57 AM", "lat": 31.4830, "lng": 73.1430},
+        {"name": "Ismail Valley - Dawoo Road", "time": "08:03 AM", "lat": 31.4920, "lng": 73.1520},
+        {"name": "FAST CFD Campus", "time": "08:25 AM", "lat": 31.5645, "lng": 73.2450}
+      ]
+    },
+    {
+      "route_id": "Route-15",
+      "name": "Route 15 - Jamia Chishtia to Campus",
+      "driver": "Mr. Hanif Shakir",
+      "contact": "0300-2388900",
+      "stops": [
+        {"name": "Jamia Chishtia", "time": "07:45 AM", "lat": 31.4700, "lng": 73.1200},
+        {"name": "MTM", "time": "07:47 AM", "lat": 31.4730, "lng": 73.1230},
+        {"name": "Usman Colony", "time": "07:48 AM", "lat": 31.4750, "lng": 73.1250},
+        {"name": "Shell Pump - Lasani Pulli", "time": "07:50 AM", "lat": 31.4780, "lng": 73.1280},
+        {"name": "KIA Showroom", "time": "07:57 AM", "lat": 31.4890, "lng": 73.1390},
+        {"name": "Samana Pull", "time": "08:00 AM", "lat": 31.4940, "lng": 73.1440},
+        {"name": "Nalka Kohala", "time": "08:02 AM", "lat": 31.4970, "lng": 73.1470},
+        {"name": "FDA City", "time": "08:05 AM", "lat": 31.5020, "lng": 73.1520},
+        {"name": "FAST CFD Campus", "time": "08:25 AM", "lat": 31.5645, "lng": 73.2450}
+      ]
+    }
+  ]
+}

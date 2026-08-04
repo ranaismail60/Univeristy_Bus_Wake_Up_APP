@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAST CFD - Offline Bus Wake-Up & P2P Radar App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --card-bg: #1e293b;
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --red-alarm: #ef4444;
+      --green-bus: #10b981;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 16px;
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #312e81, #4338ca);
+      padding: 20px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.3);
+    }
+
+    .header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .header p {
+      font-size: 0.85rem;
+      color: #c7d2fe;
+      margin-top: 4px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+      background-color: #0f172a;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--accent);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      background-color: var(--accent);
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .btn:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .distance-display {
+      text-align: center;
+      padding: 20px;
+      background: rgba(15, 23, 42, 0.6);
+      border-radius: 16px;
+      margin-top: 10px;
+    }
+
+    .distance-val {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .distance-val.alarm {
+      color: var(--red-alarm);
+      animation: pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
+
+    .status-box {
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .status-box.bus-detected {
+      background-color: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--green-bus);
+      color: var(--green-bus);
+    }
+
+    .status-box.scanning {
+      background-color: rgba(245, 158, 11, 0.15);
+      border: 1px solid #f59e0b;
+      color: #f59e0b;
+    }
+
+    .peer-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .peer-item:last-child {
+      border-bottom: none;
+    }
+
+    .peer-status-tag {
+      padding: 3px 8px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .tag-in-bus { background: rgba(16, 185, 129, 0.2); color: var(--green-bus); }
+    .tag-waiting { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+
+    .slider-container {
+      margin-top: 12px;
+    }
+
+    /* Modal Overlay for Alarm */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      z-index: 1000;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .alarm-modal {
+      background: #7f1d1d;
+      border: 2px solid #ef4444;
+      padding: 30px;
+      border-radius: 24px;
+      text-align: center;
+      max-width: 380px;
+      width: 100%;
+      box-shadow: 0 0 50px rgba(239, 68, 68, 0.5);
+    }
+
+    .alarm-modal h2 {
+      font-size: 1.8rem;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .alarm-modal p {
+      color: #fca5a5;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .btn-dismiss {
+      background-color: white;
+      color: #7f1d1d;
+      font-weight: 700;
+    }
+
+    .stop-list {
+      max-height: 200px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- App Header -->
+    <div class="header">
+      <h1>🚌 FAST CFD Bus Wake-Up</h1>
+      <p>100% Free Offline GPS Navigation & Peer Radar</p>
+      <span class="badge">OFFLINE MODE ACTIVE</span>
+    </div>
+
+    <!-- Registration & Route Selection -->
+    <div class="card" id="registrationCard">
+      <div class="card-title">👤 Student Registration</div>
+      <div class="form-group">
+        <label>Student Name</label>
+        <input type="text" id="studentNameInput" value="Hassan Ahmed" placeholder="Enter your name">
+      </div>
+      <div class="form-group">
+        <label>Select Route Number</label>
+        <select id="routeSelect" onchange="onRouteChanged()">
+          <!-- Populated by JS -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Select Target Bus Stop (Alarm Location)</label>
+        <select id="stopSelect">
+          <!-- Populated by JS -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Driver Contact Details</label>
+        <input type="text" id="driverContactInput" readonly style="color: #818cf8; font-weight: 600;">
+      </div>
+      <button class="btn" onclick="startAlarmEngine()">Activate Alarm & P2P Mesh</button>
+    </div>
+
+    <!-- Live Geofence Alarm Tracker -->
+    <div class="card" id="trackerCard" style="display: none;">
+      <div class="card-title">
+        <span>📡 Offline GPS Haversine Radar</span>
+      </div>
+      <div class="distance-display">
+        <div class="distance-val" id="distanceText">1.25 km</div>
+        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;" id="targetStopLabel">Target Stop: Chenab Garden</div>
+      </div>
+
+      <div class="slider-container">
+        <label>Simulate Distance Movement (Test Alarm):</label>
+        <input type="range" id="simDistanceSlider" min="50" max="3000" step="50" value="1250" oninput="updateSimulatedDistance(this.value)">
+      </div>
+      <p style="font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: 6px;">Alarm triggers automatically when distance &le; 500 meters</p>
+    </div>
+
+    <!-- Offline P2P Mesh Radar -->
+    <div class="card" id="radarCard" style="display: none;">
+      <div class="card-title">📶 Offline Route P2P Peer Mesh</div>
+      
+      <div class="status-box" id="busClusterStatus">
+        <!-- Status injected by JS -->
+      </div>
+
+      <div style="margin-top: 14px;">
+        <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">Nearby Route Students (Zero Internet):</div>
+        <div id="peerList">
+          <!-- Peer list injected by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Route Timetable View -->
+    <div class="card" id="timetableCard" style="display: none;">
+      <div class="card-title">📅 Route Timetable</div>
+      <div class="stop-list" id="timetableList">
+        <!-- List injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- High Priority Alarm Modal -->
+  <div class="modal-overlay" id="alarmModal">
+    <div class="alarm-modal">
+      <h2>⏰ WAKE UP!</h2>
+      <p id="alarmModalText">You are within 500m of your target stop! Get ready to step off the bus.</p>
+      <button class="btn btn-dismiss" onclick="stopAlarm()">DISMISS ALARM</button>
+    </div>
+  </div>
+
+  <script>
+    // Embedded Bus Routes dataset from FAST-NUCES CFD Campus Matrix
+    let routesData = [
+      {
+        id: "Route-01",
+        name: "Route 01 - Chenab Garden",
+        driver: "Mr. Waqas (0307-7912548)",
+        stops: [
+          { name: "Chenab Garden", time: "07:05 AM", lat: 31.4501, lng: 73.1350 },
+          { name: "Abdullah Pull", time: "07:08 AM", lat: 31.4532, lng: 73.1382 },
+          { name: "Korian Pull", time: "07:10 AM", lat: 31.4550, lng: 73.1410 },
+          { name: "D-Type Chowk", time: "07:11 AM", lat: 31.4571, lng: 73.1435 },
+          { name: "Pahari Chowk", time: "07:28 AM", lat: 31.4720, lng: 73.1550 },
+          { name: "FAST CFD Campus", time: "08:25 AM", lat: 31.5645, lng: 73.2450 }
+        ]
+      },
+      {
+        id: "Route-02",
+        name: "Route 02 - Chowki Bazzar",
+        driver: "Mr. Hanif Shakir (0300-2388900)",
+        stops: [
+          { name: "Chowki Bazzar", time: "07:12 AM", lat: 31.4150, lng: 73.0800 },
+          { name: "Wapda Colony", time: "07:14 AM", lat: 31.4200, lng: 73.0850 },
+          { name: "Amin Town", time: "07:28 AM", lat: 31.4400, lng: 73.1050 },
+          { name: "FAST CFD Campus", time: "08:25 AM", lat: 31.5645, lng: 73.2450 }
+        ]
+      },
+      {
+        id: "Route-03",
+        name: "Route 03 - Millat Town",
+        driver: "Mr. Zahid (0333-6565326)",
+        stops: [
+          { name: "Millat Town", time: "07:25 AM", lat: 31.4600, lng: 73.1100 },
+          { name: "Green Town", time: "07:29 AM", lat: 31.4660, lng: 73.1160 },
+          { name: "Haq Bahu Chowk", time: "07:43 AM", lat: 31.4850, lng: 73.1350 },
+          { name: "FAST CFD Campus", time: "08:25 AM", lat: 31.5645, lng: 73.2450 }
+        ]
+      },
+      {
+        id: "Route-05",
+        name: "Route 05 - Marzi Pura",
+        driver: "Mr. Khalid (0336-7788662)",
+        stops: [
+          { name: "Marzi Pura", time: "07:15 AM", lat: 31.4300, lng: 73.0500 },
+          { name: "Iqbal Hospital", time: "07:32 AM", lat: 31.4540, lng: 73.0740 },
+          { name: "University Main Gate", time: "07:42 AM", lat: 31.4700, lng: 73.0900 },
+          { name: "FAST CFD Campus", time: "08:25 AM", lat: 31.5645, lng: 73.2450 }
+        ]
+      },
+      {
+        id: "Route-08",
+        name: "Route 08 - Chiniot",
+        driver: "Campus Desk (0312-9103000)",
+        stops: [
+          { name: "Chungi # 3", time: "07:25 AM", lat: 31.7200, lng: 72.9800 },
+          { name: "Station Chowk", time: "07:30 AM", lat: 31.7250, lng: 72.9850 },
+          { name: "Tehsil Chowk", time: "07:55 AM", lat: 31.7470, lng: 73.0070 },
+          { name: "FAST CFD Campus", "time": "08:25 AM", lat: 31.5645, lng: 73.2450 }
+        ]
+      }
+    ];
+
+    let selectedRoute = null;
+    let selectedStop = null;
+    let currentDistance = 1250;
+    let alarmActive = false;
+    let audioCtx = null;
+    let alarmOsc = null;
+
+    window.onload = function() {
+      populateRoutes();
+    };
+
+    function populateRoutes() {
+      const routeSelect = document.getElementById('routeSelect');
+      routeSelect.innerHTML = '';
+      routesData.forEach((r, idx) => {
+        let opt = document.createElement('option');
+        opt.value = idx;
+        opt.innerText = r.name;
+        routeSelect.appendChild(opt);
+      });
+      onRouteChanged();
+    }
+
+    function onRouteChanged() {
+      const routeIdx = document.getElementById('routeSelect').value;
+      selectedRoute = routesData[routeIdx];
+
+      const stopSelect = document.getElementById('stopSelect');
+      stopSelect.innerHTML = '';
+      selectedRoute.stops.forEach((s, idx) => {
+        let opt = document.createElement('option');
+        opt.value = idx;
+        opt.innerText = `${s.name} (${s.time})`;
+        stopSelect.appendChild(opt);
+      });
+
+      document.getElementById('driverContactInput').value = selectedRoute.driver;
+      selectedStop = selectedRoute.stops[0];
+    }
+
+    function startAlarmEngine() {
+      const stopIdx = document.getElementById('stopSelect').value;
+      selectedStop = selectedRoute.stops[stopIdx];
+
+      document.getElementById('trackerCard').style.display = 'block';
+      document.getElementById('radarCard').style.display = 'block';
+      document.getElementById('timetableCard').style.display = 'block';
+
+      document.getElementById('targetStopLabel').innerText = `Target Stop: ${selectedStop.name} (${selectedStop.time})`;
+      
+      updateSimulatedDistance(1250);
+      renderTimetable();
+      renderP2PMesh();
+    }
+
+    function updateSimulatedDistance(val) {
+      currentDistance = parseInt(val);
+      const textElem = document.getElementById('distanceText');
+
+      if (currentDistance >= 1000) {
+        textElem.innerText = (currentDistance / 1000).toFixed(2) + " km";
+      } else {
+        textElem.innerText = currentDistance + " meters";
+      }
+
+      if (currentDistance <= 500) {
+        textElem.classList.add('alarm');
+        if (!alarmActive) {
+          triggerAlarmSound();
+        }
+      } else {
+        textElem.classList.remove('alarm');
+      }
+    }
+
+    function triggerAlarmSound() {
+      alarmActive = true;
+      document.getElementById('alarmModal').classList.add('active');
+      document.getElementById('alarmModalText').innerText = `You are ${currentDistance}m from ${selectedStop.name}! Wake up!`;
+
+      // Web Audio API Alarm Synthesizer
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      alarmOsc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      
+      alarmOsc.type = 'sawtooth';
+      alarmOsc.frequency.setValueAtTime(880, audioCtx.currentTime); // High pitch A5
+      
+      gain.gain.setValueAtTime(0.5, audioCtx.currentTime);
+      alarmOsc.connect(gain);
+      gain.connect(audioCtx.destination);
+      
+      alarmOsc.start();
+
+      // Trigger phone vibration if supported
+      if (navigator.vibrate) {
+        navigator.vibrate([500, 200, 500, 200, 500]);
+      }
+    }
+
+    function stopAlarm() {
+      alarmActive = false;
+      document.getElementById('alarmModal').classList.remove('active');
+      if (alarmOsc) {
+        alarmOsc.stop();
+        alarmOsc.disconnect();
+      }
+    }
+
+    function renderP2PMesh() {
+      const statusBox = document.getElementById('busClusterStatus');
+      const peerList = document.getElementById('peerList');
+
+      // Simulated P2P peers on same route
+      const peers = [
+        { name: "Ali Raza", stop: selectedRoute.stops[0].name, speed: 38, inBus: true },
+        { name: "Usman Ghani", stop: selectedRoute.stops[0].name, speed: 36, inBus: true },
+        { name: "Hamza Khan", stop: selectedStop.name, speed: 0, inBus: false }
+      ];
+
+      const busCount = peers.filter(p => p.inBus).length;
+
+      if (busCount >= 2) {
+        statusBox.className = "status-box bus-detected";
+        statusBox.innerHTML = `<div><strong>✓ BUS LOCATED ON ROUTE</strong><br><small>${busCount} students moving at >30km/h together</small></div>`;
+      } else {
+        statusBox.className = "status-box scanning";
+        statusBox.innerHTML = `<div><strong>Scanning P2P Mesh...</strong><br><small>Waiting for bus peer cluster</small></div>`;
+      }
+
+      peerList.innerHTML = peers.map(p => `
+        <div class="peer-item">
+          <div>
+            <strong>${p.name}</strong> <span style="font-size: 0.8rem; color: #94a3b8;">(${p.stop})</span><br>
+            <small style="color: #64748b;">Speed: ${p.speed} km/h</small>
+          </div>
+          <span class="peer-status-tag ${p.inBus ? 'tag-in-bus' : 'tag-waiting'}">
+            ${p.inBus ? 'IN BUS' : 'WAITING'}
+          </span>
+        </div>
+      `).join('');
+    }
+
+    function renderTimetable() {
+      const list = document.getElementById('timetableList');
+      list.innerHTML = selectedRoute.stops.map(s => `
+        <div class="peer-item">
+          <span style="${s.name === selectedStop.name ? 'color: #ef4444; font-weight: bold;' : ''}">${s.name}</span>
+          <span style="color: #94a3b8;">${s.time}</span>
+        </div>
+      `).join('');
+    }
+  </script>
+</body>
+</html>
