@@ -13,8 +13,6 @@ dependencies:
   flutter_ringtone_player: ^3.2.0
   shared_preferences: ^2.2.2
   vibration: ^1.8.4
-  wifi_iot: ^0.3.19
-  flutter_nearby_connections: ^1.1.2
   cupertino_icons: ^1.0.6
 
 dev_dependencies:
