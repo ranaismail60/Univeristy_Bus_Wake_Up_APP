@@ -26,6 +26,12 @@
         android:label="Uni Bus Alarm & Radar"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+        <!-- Explicit Flutter V2 Embedding Tag -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
